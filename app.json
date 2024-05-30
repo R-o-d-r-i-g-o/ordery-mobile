@@ -2,6 +2,7 @@
   "expo": {
     "name": "ordery-mobile",
     "slug": "ordery-mobile",
+    "scheme": "ordery-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,12 +24,14 @@
       "package": "com.rodrigo.orderymobile"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
     },
     "extra": {
       "eas": {
         "projectId": "efbfab67-7e52-4c4a-9845-4d39d5e6afdd"
       }
-    }
+    },
+    "plugins": ["expo-router"]
   }
 }
