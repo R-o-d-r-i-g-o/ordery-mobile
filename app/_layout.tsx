@@ -1,8 +1,13 @@
 import { Slot } from "expo-router";
+import { ThemeProvider } from "styled-components";
+
 import { AuthProvider as SessionProvider } from "../utils/contexts/auth";
+import { defaultTheme } from "../utils/themes";
 
 export default () => (
-  <SessionProvider>
-    <Slot />
-  </SessionProvider>
+  <ThemeProvider theme={defaultTheme}>
+    <SessionProvider>
+      <Slot />
+    </SessionProvider>
+  </ThemeProvider>
 );

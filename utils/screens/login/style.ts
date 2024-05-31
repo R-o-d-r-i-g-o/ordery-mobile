@@ -40,17 +40,17 @@ const Input = styled.TextInput`
   padding: 12px;
   margin-bottom: 16px;
   border-radius: 8px;
-  background-color: rgba(0, 0, 255, 0.2);
-  color: #000;
+  background-color: ${(t) => t.theme.secondary};
+  color: ${(t) => t.theme.primary};
   font-size: 16px;
 `;
 
 const SubmitButton = styled.TouchableOpacity`
   width: 100%;
   padding: 12px;
-  background-color: #6a1b9a;
   justify-content: center;
   align-items: center;
+  background-color: ${(t) => t.theme.primary};
   border-radius: 8px;
 `;
 
@@ -62,8 +62,9 @@ const ButtonText = styled.Text`
 
 const ErrorText = styled.Text`
   color: #d32f2f;
-  margin-bottom: 10px;
   font-size: 14px;
+  margin-top: -14px;
+  margin-bottom: 6px;
 `;
 
 export {
