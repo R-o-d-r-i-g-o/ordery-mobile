@@ -1,33 +1,22 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Alert } from "react-native";
+
 import { authService } from "../../service/auth";
+import { BASE_AUTH } from "../../constants";
 
-const BASE_AUTH = "@AuthData";
+import * as t from "./types";
 
-export interface AuthData {
-  token: string;
-  email: string;
-  name: string;
-}
+export const AuthContext = createContext({} as t.AuthContextData);
 
-interface AuthContextData {
-  session?: AuthData;
-  signIn: (email: string, password: string) => Promise<void>;
-  signOut: () => Promise<void>;
-  loading: boolean;
-}
-
-export const AuthContext = createContext({} as AuthContextData);
-
-export const AuthProvider = ({ children }: { children: JSX.Element }) => {
-  const [authData, setAuthData] = useState<AuthData>();
+export const AuthProvider = ({ children }: t.ContextWapper) => {
+  const [authData, setAuthData] = useState<t.AuthData>();
   const [loading, setLoading] = useState(true);
 
   const loadFromStorage = async () => {
     const auth = await AsyncStorage.getItem(BASE_AUTH);
 
-    if (auth) setAuthData(JSON.parse(auth) as AuthData);
+    if (auth) setAuthData(JSON.parse(auth) as t.AuthData);
     setLoading(false);
   };
 

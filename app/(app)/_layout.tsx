@@ -8,7 +8,7 @@ const AppLayout = () => {
 
   if (loading) return <Text>Loading...</Text>;
 
-  if (!session) return <Redirect href="/sign-in" />;
+  if (!session) return <Redirect href="/" />;
 
   return <Stack />;
 };
